@@ -4,25 +4,25 @@ overview: Turn this repo into a Bun-built GitHub-installable package that drops 
 todos:
   - id: add-bun-package-metadata
     content: Create `package.json` + Bun scripts + exports map; add `tsconfig.json` and build tooling to emit `dist/` + types
-    status: in_progress
+    status: completed
   - id: move-and-stabilize-library-api
     content: Re-home current Firebase env/admin/session + Next guards into `src/` with stable named exports and server/client entrypoints
-    status: pending
+    status: completed
     dependencies:
       - add-bun-package-metadata
   - id: next-middleware-factory
     content: Add `createAuthMiddleware` (cookie presence redirects) with clear config + matcher guidance; ensure it stays edge-safe
-    status: pending
+    status: completed
     dependencies:
       - move-and-stabilize-library-api
   - id: route-handler-factories
     content: Provide factories for `session`, `verify`, `logout` route handlers so consumers can drop them into `app/api/.../route.ts`
-    status: pending
+    status: completed
     dependencies:
       - move-and-stabilize-library-api
   - id: docs-and-tests
     content: Write README quickstart + add `bun test` coverage for env parsing + middleware decisions + cookie options
-    status: pending
+    status: completed
     dependencies:
       - next-middleware-factory
       - route-handler-factories
