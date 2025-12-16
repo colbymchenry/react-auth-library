@@ -101,9 +101,13 @@ export function createAuthMiddleware(config: AuthMiddlewareConfig = {}) {
     );
 
     // Check if current path is public-only (e.g., login page)
-    const isPublicOnlyPath = publicOnlyPaths.some((path) =>
-      pathname.startsWith(path)
-    );
+    // Special handling for root path "/" to avoid matching all routes
+    const isPublicOnlyPath = publicOnlyPaths.some((path) => {
+      if (path === '/') {
+        return pathname === '/';
+      }
+      return pathname.startsWith(path);
+    });
 
     // Case 1: Protected path without session → redirect to login
     if (isProtectedPath && !hasSession) {

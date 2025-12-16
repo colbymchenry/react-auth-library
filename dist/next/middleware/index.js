@@ -17,9 +17,12 @@ function createAuthMiddleware(config = {}) {
     const isProtectedPath = protectedPrefixes.some(
       (prefix) => pathname.startsWith(prefix)
     );
-    const isPublicOnlyPath = publicOnlyPaths.some(
-      (path) => pathname.startsWith(path)
-    );
+    const isPublicOnlyPath = publicOnlyPaths.some((path) => {
+      if (path === "/") {
+        return pathname === "/";
+      }
+      return pathname.startsWith(path);
+    });
     if (isProtectedPath && !hasSession) {
       const loginUrl = new URL(loginPath, request.url);
       loginUrl.searchParams.set("from", pathname);
