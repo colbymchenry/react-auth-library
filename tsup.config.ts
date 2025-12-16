@@ -26,6 +26,9 @@ export default defineConfig({
     'react',
     'react-dom',
     'next',
+    'next/server',
+    'next/headers',
+    'next/navigation',
     'firebase',
     'firebase-admin',
     'firebase/app',
@@ -33,5 +36,7 @@ export default defineConfig({
     'firebase-admin/auth',
     'zustand',
   ],
+  noExternal: [],
+  platform: 'neutral',
 });
 

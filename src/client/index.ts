@@ -1,7 +1,10 @@
 /**
  * Client-only exports for Firebase Auth Next.js library.
  *
- * Import from '@volcanica/firebase-auth-nextjs/client' to get client SDK, auth store, and provider.
+ * Import from '@colbymchenry/react-auth-library/client' to get client SDK, auth store, and provider.
+ *
+ * ⚠️ These exports are CLIENT-ONLY and should never be imported in server components,
+ * middleware, or API routes.
  */
 export {
   firebaseAuth,

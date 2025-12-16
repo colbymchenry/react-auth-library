@@ -29,9 +29,11 @@
     "./next/middleware": {
       "types": "./dist/next/middleware/index.d.ts",
       "import": "./dist/next/middleware/index.js",
-      "require": "./dist/next/middleware/index.cjs"
+      "require": "./dist/next/middleware/index.cjs",
+      "edge-light": "./dist/next/middleware/index.js"
     }
   },
+  "sideEffects": false,
   "files": [
     "dist",
     "README.md",

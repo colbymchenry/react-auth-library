@@ -11,7 +11,12 @@
  */
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { FIREBASE_SESSION_COOKIE_NAME } from '../../server/firebase-session';
+
+/**
+ * Default session cookie name.
+ * Hardcoded here to avoid importing Node.js modules in edge runtime.
+ */
+const FIREBASE_SESSION_COOKIE_NAME = '__session';
 
 export interface AuthMiddlewareConfig {
   /**
