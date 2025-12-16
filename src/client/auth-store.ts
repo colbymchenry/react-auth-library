@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Client-side auth state (Zustand).
  *

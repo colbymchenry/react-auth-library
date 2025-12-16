@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Firebase Client SDK initialization (browser/client components only).
  *

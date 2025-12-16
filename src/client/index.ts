@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Client-only exports for Firebase Auth Next.js library.
  *
@@ -5,6 +7,12 @@
  *
  * ⚠️ These exports are CLIENT-ONLY and should never be imported in server components,
  * middleware, or API routes.
+ *
+ * @example
+ * ```tsx
+ * 'use client';
+ * import { useAuthStore, AuthProvider } from '@colbymchenry/react-auth-library/client';
+ * ```
  */
 export {
   firebaseAuth,

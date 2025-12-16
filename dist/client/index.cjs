@@ -5,8 +5,6 @@ var auth = require('firebase/auth');
 var zustand = require('zustand');
 var react = require('react');
 
-// src/client/firebase-client.ts
-
 // src/env/firebase-env.ts
 var FirebaseEnvError = class extends Error {
   name = "FirebaseEnvError";

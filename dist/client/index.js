@@ -3,8 +3,6 @@ import { getAuth, GoogleAuthProvider, signOut, isSignInWithEmailLink, signInWith
 import { create } from 'zustand';
 import { useEffect } from 'react';
 
-// src/client/firebase-client.ts
-
 // src/env/firebase-env.ts
 var FirebaseEnvError = class extends Error {
   name = "FirebaseEnvError";

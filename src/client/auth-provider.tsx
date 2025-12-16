@@ -14,6 +14,22 @@ import { useAuthStore } from './auth-store';
  *
  * The server enforces authorization via session cookies. This provider only exists to power
  * client UX (showing user state, triggering login/logout flows, etc).
+ *
+ * @example
+ * ```tsx
+ * // app/layout.tsx
+ * import { AuthProvider } from '@colbymchenry/react-auth-library/client';
+ *
+ * export default function RootLayout({ children }) {
+ *   return (
+ *     <html>
+ *       <body>
+ *         <AuthProvider>{children}</AuthProvider>
+ *       </body>
+ *     </html>
+ *   );
+ * }
+ * ```
  */
 export function AuthProvider({ children }: PropsWithChildren) {
   const startListener = useAuthStore((state) => state.startListener);

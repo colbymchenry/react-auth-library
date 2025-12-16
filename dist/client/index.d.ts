@@ -31,6 +31,22 @@ declare const useAuthStore: zustand.UseBoundStore<zustand.StoreApi<AuthState>>;
  *
  * The server enforces authorization via session cookies. This provider only exists to power
  * client UX (showing user state, triggering login/logout flows, etc).
+ *
+ * @example
+ * ```tsx
+ * // app/layout.tsx
+ * import { AuthProvider } from '@colbymchenry/react-auth-library/client';
+ *
+ * export default function RootLayout({ children }) {
+ *   return (
+ *     <html>
+ *       <body>
+ *         <AuthProvider>{children}</AuthProvider>
+ *       </body>
+ *     </html>
+ *   );
+ * }
+ * ```
  */
 declare function AuthProvider({ children }: PropsWithChildren): react.ReactNode;
 
