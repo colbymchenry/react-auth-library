@@ -71,10 +71,10 @@
     "auth",
     "middleware"
   ],
-  "author": "Volcanica",
+  "author": "Colby McHenry",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/volcanica/react-auth-library"
+    "url": "https://github.com/colbymchenry/react-auth-library"
   }
 }

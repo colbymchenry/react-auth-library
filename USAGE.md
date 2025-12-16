@@ -5,7 +5,7 @@
 Add this package to your Next.js project via GitHub:
 
 ```bash
-bun add github:volcanica/react-auth-library
+bun add github:colbymchenry/react-auth-library
 ```
 
 ## Setup Steps
@@ -27,7 +27,7 @@ NEXT_PUBLIC_FIREBASE='{"apiKey":"...","authDomain":"...",...}'
 Create `middleware.ts` in your project root:
 
 ```typescript
-import { createAuthMiddleware } from '@volcanica/firebase-auth-nextjs/next/middleware';
+import { createAuthMiddleware } from '@colbymchenry/react-auth-library/next/middleware';
 
 export default createAuthMiddleware({
   protectedPrefixes: ['/dashboard'],
@@ -47,7 +47,7 @@ export const config = {
 
 #### `app/api/auth/session/route.ts`
 ```typescript
-import { createSessionRouteHandler } from '@volcanica/firebase-auth-nextjs/next/app-router';
+import { createSessionRouteHandler } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const POST = createSessionRouteHandler();
@@ -55,7 +55,7 @@ export const POST = createSessionRouteHandler();
 
 #### `app/api/auth/verify/route.ts`
 ```typescript
-import { createVerifyRouteHandler } from '@volcanica/firebase-auth-nextjs/next/app-router';
+import { createVerifyRouteHandler } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const GET = createVerifyRouteHandler();
@@ -63,7 +63,7 @@ export const GET = createVerifyRouteHandler();
 
 #### `app/api/auth/logout/route.ts`
 ```typescript
-import { createLogoutRouteHandlers } from '@volcanica/firebase-auth-nextjs/next/app-router';
+import { createLogoutRouteHandlers } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const { POST, GET } = createLogoutRouteHandlers();
@@ -74,7 +74,7 @@ export const { POST, GET } = createLogoutRouteHandlers();
 Update `app/layout.tsx`:
 
 ```typescript
-import { AuthProvider } from '@volcanica/firebase-auth-nextjs/client';
+import { AuthProvider } from '@colbymchenry/react-auth-library/client';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -94,7 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 Create `app/dashboard/layout.tsx`:
 
 ```typescript
-import { requireAuthenticatedUserOrRedirect } from '@volcanica/firebase-auth-nextjs/next/app-router';
+import { requireAuthenticatedUserOrRedirect } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -118,7 +118,7 @@ Create `app/login/page.tsx`:
 ```typescript
 'use client';
 
-import { useAuthStore } from '@volcanica/firebase-auth-nextjs/client';
+import { useAuthStore } from '@colbymchenry/react-auth-library/client';
 
 export default function LoginPage() {
   const signInWithGoogle = useAuthStore((state) => state.signInWithGoogle);
@@ -178,7 +178,7 @@ After making changes to the library:
 
 ```typescript
 import { NextResponse } from 'next/server';
-import { requireAuthenticatedUserOr401 } from '@volcanica/firebase-auth-nextjs/next/app-router';
+import { requireAuthenticatedUserOr401 } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 
@@ -194,7 +194,7 @@ export async function GET() {
 ### Admin-Only Routes
 
 ```typescript
-import { requireAdminUserOrNotFound } from '@volcanica/firebase-auth-nextjs/next/app-router';
+import { requireAdminUserOrNotFound } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -211,7 +211,7 @@ export default async function AdminPage() {
 ```typescript
 'use client';
 
-import { useAuthStore } from '@volcanica/firebase-auth-nextjs/client';
+import { useAuthStore } from '@colbymchenry/react-auth-library/client';
 
 export function UserProfile() {
   const user = useAuthStore((state) => state.user);
@@ -253,5 +253,5 @@ When you push changes to the library's GitHub repo:
 1. Build: `bun run build`
 2. Commit the built `dist/` folder
 3. Push to GitHub
-4. In consuming projects: `bun update @volcanica/firebase-auth-nextjs`
+4. In consuming projects: `bun update @colbymchenry/react-auth-library`
 

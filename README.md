@@ -57,7 +57,7 @@ NEXT_PUBLIC_FIREBASE='{"apiKey":"...","authDomain":"your-project.firebaseapp.com
 Create `middleware.ts` at your project root:
 
 ```typescript
-import { createAuthMiddleware } from '@@colbymchenry/firebase-auth-nextjs/next/middleware';
+import { createAuthMiddleware } from '@colbymchenry/react-auth-library/next/middleware';
 
 export default createAuthMiddleware({
   protectedPrefixes: ['/dashboard', '/api/protected'],
@@ -78,7 +78,7 @@ export const config = {
 #### `app/api/auth/session/route.ts`
 
 ```typescript
-import { createSessionRouteHandler } from '@@colbymchenry/firebase-auth-nextjs/next/app-router';
+import { createSessionRouteHandler } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const POST = createSessionRouteHandler();
@@ -87,7 +87,7 @@ export const POST = createSessionRouteHandler();
 #### `app/api/auth/verify/route.ts`
 
 ```typescript
-import { createVerifyRouteHandler } from '@@colbymchenry/firebase-auth-nextjs/next/app-router';
+import { createVerifyRouteHandler } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const GET = createVerifyRouteHandler();
@@ -96,7 +96,7 @@ export const GET = createVerifyRouteHandler();
 #### `app/api/auth/logout/route.ts`
 
 ```typescript
-import { createLogoutRouteHandlers } from '@@colbymchenry/firebase-auth-nextjs/next/app-router';
+import { createLogoutRouteHandlers } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const { POST, GET } = createLogoutRouteHandlers();
@@ -107,7 +107,7 @@ export const { POST, GET } = createLogoutRouteHandlers();
 #### Protected layout (e.g., `app/dashboard/layout.tsx`)
 
 ```typescript
-import { requireAuthenticatedUserOrRedirect } from '@@colbymchenry/firebase-auth-nextjs/next/app-router';
+import { requireAuthenticatedUserOrRedirect } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -128,7 +128,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
 ```typescript
 import { NextResponse } from 'next/server';
-import { requireAuthenticatedUserOr401 } from '@@colbymchenry/firebase-auth-nextjs/next/app-router';
+import { requireAuthenticatedUserOr401 } from '@colbymchenry/react-auth-library/next/app-router';
 
 export const runtime = 'nodejs';
 
@@ -148,7 +148,7 @@ export async function GET() {
 Wrap your app with the auth provider in `app/layout.tsx`:
 
 ```typescript
-import { AuthProvider } from '@@colbymchenry/firebase-auth-nextjs/client';
+import { AuthProvider } from '@colbymchenry/react-auth-library/client';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -168,7 +168,7 @@ Use the auth store in client components:
 ```typescript
 'use client';
 
-import { useAuthStore } from '@@colbymchenry/firebase-auth-nextjs/client';
+import { useAuthStore } from '@colbymchenry/react-auth-library/client';
 
 export function LoginButton() {
   const signInWithGoogle = useAuthStore((state) => state.signInWithGoogle);
@@ -187,7 +187,7 @@ export function LoginButton() {
 
 ## API Reference
 
-### Server (`@@colbymchenry/firebase-auth-nextjs/server`)
+### Server (`@colbymchenry/react-auth-library/server`)
 
 - `firebaseAdminApp` - Firebase Admin app instance
 - `firebaseAdminAuth` - Firebase Admin Auth instance
@@ -198,14 +198,14 @@ export function LoginButton() {
 - `getSessionCookieOptions()` - Get cookie options (httpOnly, secure, sameSite, etc.)
 - `FIREBASE_SESSION_COOKIE_NAME` - Default cookie name (`__session`)
 
-### Client (`@@colbymchenry/firebase-auth-nextjs/client`)
+### Client (`@colbymchenry/react-auth-library/client`)
 
 - `firebaseAuth` - Firebase Auth instance
 - `googleAuthProvider` - Google Auth provider
 - `useAuthStore` - Zustand store for client auth state
 - `AuthProvider` - React provider component
 
-### Next.js App Router (`@@colbymchenry/firebase-auth-nextjs/next/app-router`)
+### Next.js App Router (`@colbymchenry/react-auth-library/next/app-router`)
 
 **Server Guards:**
 - `getAuthenticatedUser()` - Get current user or null
@@ -222,7 +222,7 @@ export function LoginButton() {
 - `createVerifyRouteHandler()` - GET handler for session verification
 - `createLogoutRouteHandlers()` - POST/GET handlers for logout
 
-### Middleware (`@@colbymchenry/firebase-auth-nextjs/next/middleware`)
+### Middleware (`@colbymchenry/react-auth-library/next/middleware`)
 
 - `createAuthMiddleware(config)` - Create middleware function
 - `getRecommendedMatcher()` - Get recommended matcher config
