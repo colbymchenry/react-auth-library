@@ -4,7 +4,7 @@ node_modules
 .pnp.js
 
 # Build outputs
-dist
+# Note: dist is committed for GitHub installs
 *.tsbuildinfo
 
 # Testing
