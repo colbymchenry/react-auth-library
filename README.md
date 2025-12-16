@@ -1,4 +1,4 @@
-# @volcanica/firebase-auth-nextjs
+# @colbymchenry/react-auth-library
 
 **Firebase session-based authentication utilities for Next.js App Router projects.**
 
