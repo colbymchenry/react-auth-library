@@ -19,17 +19,17 @@ This library provides drop-in building blocks for protecting Next.js routes with
 Install via GitHub with Bun:
 
 ```bash
-bun add github:@colbymchenry/react-auth-library
+bun add github:colbymchenry/react-auth-library
 ```
 
 Or with npm/pnpm/yarn:
 
 ```bash
-npm install github:@colbymchenry/react-auth-library
+npm install github:colbymchenry/react-auth-library
 # or
-pnpm add github:@colbymchenry/react-auth-library
+pnpm add github:colbymchenry/react-auth-library
 # or
-yarn add github:@colbymchenry/react-auth-library
+yarn add github:colbymchenry/react-auth-library
 ```
 
 ---
