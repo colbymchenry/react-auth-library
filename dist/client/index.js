@@ -1,3 +1,4 @@
+'use client';
 import { getApps, getApp, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signOut, isSignInWithEmailLink, signInWithEmailLink, sendSignInLinkToEmail, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import { create } from 'zustand';

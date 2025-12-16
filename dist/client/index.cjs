@@ -1,3 +1,4 @@
+'use client';
 'use strict';
 
 var app = require('firebase/app');
